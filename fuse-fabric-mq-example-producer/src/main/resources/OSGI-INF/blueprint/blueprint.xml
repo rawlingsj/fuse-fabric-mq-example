@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<blueprint xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:camel="http://camel.apache.org/schema/blueprint"
+	xmlns:cm="http://aries.apache.org/blueprint/xmlns/blueprint-cm/v1.0.0"
+	xsi:schemaLocation="
+	http://www.osgi.org/xmlns/blueprint/v1.0.0 http://www.osgi.org/xmlns/blueprint/v1.0.0/blueprint.xsd
+	http://aries.apache.org/blueprint/xmlns/blueprint-cm/v1.0.0 http://aries.apache.org/schemas/blueprint-cm/blueprint-cm-1.0.0.xsd
+	http://camel.apache.org/schema/blueprint http://camel.apache.org/schema/blueprint/camel-blueprint-2.10.0.xsd">
+
+	<!-- osgi blueprint property placeholder -->
+	<cm:property-placeholder persistent-id="org.fusebyexample.fuse.fabric.mq.example">
+		<cm:default-properties>
+ 			<cm:property name="broker.url" value="discovery:(fabric:fuse-example)" />
+			<cm:property name="broker.username" value="admin" />
+			<cm:property name="broker.password" value="admin" />
+			<cm:property name="broker.max.connections" value="5" />
+			<cm:property name="my-in-queue" value="activemq:my-test-IN.QUEUE"/>
+		</cm:default-properties>
+	</cm:property-placeholder>
+
+	<reference id="zkClient" interface="org.fusesource.fabric.zookeeper.IZKClient" />
+
+	<bean id="jmsConnectionFactory" class="org.apache.activemq.ActiveMQConnectionFactory">
+		<property name="brokerURL" value="${broker.url}" />
+		<property name="userName" value="${broker.username}" />
+		<property name="password" value="${broker.password}" />
+	</bean>
+
+	<bean id="pooledConnectionFactory" class="org.apache.activemq.pool.PooledConnectionFactory"  init-method="start" destroy-method="stop">
+		<property name="maxConnections" value="${broker.max.connections}" />
+		<property name="connectionFactory" ref="jmsConnectionFactory" />
+	</bean>
+
+	<bean id="activemq" class="org.apache.activemq.camel.component.ActiveMQComponent">
+		<property name="connectionFactory" ref="pooledConnectionFactory" />
+	</bean>
+
+	<camelContext id="timercontext"
+		xmlns="http://camel.apache.org/schema/blueprint">
+
+		<route id="my-timer-route">
+			<from uri="timer://foo?period=1000" />
+			<log message="The message contains ${body}" />
+			<to uri="{{my-in-queue}}" />
+		</route>
+	</camelContext>
+
+</blueprint>
