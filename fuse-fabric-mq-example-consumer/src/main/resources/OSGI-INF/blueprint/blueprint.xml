@@ -10,36 +10,15 @@
 	<!-- osgi blueprint property placeholder -->
 	<cm:property-placeholder persistent-id="org.fusebyexample.fuse.fabric.mq.example">
 		<cm:default-properties>
-			<cm:property name="broker.url" value="discovery:(fabric:fuse-example)" />
-			<cm:property name="broker.username" value="admin" />
-			<cm:property name="broker.password" value="admin" />
-			<cm:property name="broker.max.connections" value="5" />
 			<cm:property name="my-in-queue" value="activemq:my-test-IN.QUEUE"/>
 		</cm:default-properties>
 	</cm:property-placeholder>
-
-	<reference id="zkClient" interface="org.fusesource.fabric.zookeeper.IZKClient" />
-
-	<bean id="jmsConnectionFactory" class="org.apache.activemq.ActiveMQConnectionFactory">
-		<property name="brokerURL" value="${broker.url}" />
-		<property name="userName" value="${broker.username}" />
-		<property name="password" value="${broker.password}" />
-	</bean>
-
-	<bean id="pooledConnectionFactory" class="org.apache.activemq.pool.PooledConnectionFactory">
-		<property name="maxConnections" value="${broker.max.connections}" />
-		<property name="connectionFactory" ref="jmsConnectionFactory" />
-	</bean>
-
-	<bean id="activemq" class="org.apache.activemq.camel.component.ActiveMQComponent">
-		<property name="connectionFactory" ref="pooledConnectionFactory" />
-	</bean>
 
 	<camelContext id="fuseBasicCamelContext"
 		xmlns="http://camel.apache.org/schema/blueprint">
 
 		<route id="my-consuming-route">
-			<from uri="{{my-in-queue}}" />
+			<from uri="amq:{{my-in-queue}}" />
 			<log message="The message contains ${body}" />
 			<to uri="mock:result" />
 		</route>

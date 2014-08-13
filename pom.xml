@@ -12,15 +12,12 @@
 		<module>fuse-fabric-mq-example-producer</module>
 	</modules>
 	<properties>
-		<activemq.version>5.8.0.redhat-60024</activemq.version>
+		<activemq.version>5.9.0.redhat-610379</activemq.version>
 		<build.helper.version>1.7</build.helper.version>
-		<camel.version>2.10.0.redhat-60024</camel.version>
+		<camel.version>2.12.0.redhat-610379</camel.version>
 		<commons-pool.version>1.6</commons-pool.version>
 		<cxf.version>2.6.0.redhat-60024</cxf.version>
-		<fuse-esb.version>7.2.0.redhat-024</fuse-esb.version>
-		<hawtio.version>1.1</hawtio.version>
 		<junit.version>4.8.1</junit.version>
-		<karaf.version>2.3.0.redhat-60024</karaf.version>
 		<log4j.version>1.2.17</log4j.version>
 		<maven-sortpom-plugin>2.1.0</maven-sortpom-plugin>
 		<maven.bundle.plugin.version>2.3.7</maven.bundle.plugin.version>
@@ -61,16 +58,6 @@
 				<groupId>org.apache.camel</groupId>
 				<artifactId>camel-test-blueprint</artifactId>
 				<version>${camel.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.fusesource.fabric</groupId>
-				<artifactId>fabric-zookeeper</artifactId>
-				<version>${fuse-esb.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.fusesource.fabric</groupId>
-				<artifactId>fabric-zookeeper-commands</artifactId>
-				<version>${fuse-esb.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.slf4j</groupId>

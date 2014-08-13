@@ -1,22 +1,11 @@
-######################
-### Use hawtio 1.1 ###
-######################
-
-fabric:profile-edit -r mvn:io.hawt/hawtio-karaf/1.1/xml/features hawtio
 
 ################
 ### MQBroker ###
 ################
 
-import -v -t /fabric/configs/versions/1.0/profiles/mq-base/fuse-example-broker.xml fuse-example-broker-config/fuse-example-broker.xml
-fabric:mq-create --create-container fuse-example-broker --config fuse-example-broker.xml fuse-example-mq-profile
-fabric:profile-edit --pid org.fusesource.mq.fabric.server-fuse-example-mq-profile/openwire-port=61616 fuse-example-mq-profile
-fabric:profile-edit --pid org.fusesource.mq.fabric.server-fuse-example-mq-profile/broker-name=fuse-example fuse-example-mq-profile
-fabric:profile-edit --pid org.fusesource.mq.fabric.server-fuse-example-mq-profile/group=fuse-example fuse-example-mq-profile
-# Each container that runs hawtio needs to do so on a different port
-fabric:profile-edit --pid org.ops4j.pax.web/org.osgi.service.http.port=8380 fuse-example-mq-profile
-fabric:container-add-profile fuse-example-broker hawtio
-
+fabric:create --wait-for-provisioning --profile fabric
+container-create-child root fuse-example-broker
+mq-create --assign-container fuse-example-broker fuse-example-mq-profile
 
 
 ################
@@ -24,23 +13,17 @@ fabric:container-add-profile fuse-example-broker hawtio
 ################
 
 # Config profile
-fabric:profile-create --parents camel --parents hawtio base-profile
+fabric:profile-create --parents feature-camel-jms --parents mq-broker-default.fuse-example-mq-profile  base-profile
 fabric:profile-edit -r mvn:org.fusebyexample.mq/fuse-fabric-mq-example-features/${project.version}/xml/features base-profile
-fabric:profile-edit --pid org.fusebyexample.fuse.fabric.mq.example/my-in-queue=activemq:FUSE-MQ-EXAMPLE.IN.QUEUE base-profile
 
 # Producer profile
-fabric:profile-create --parents base-profile --parents hawtio producer-profile
-fabric:profile-edit --pid org.ops4j.pax.web/org.osgi.service.http.port=8381 producer-profile
+fabric:profile-create --parents base-profile producer-profile
 fabric:profile-edit --features producer-feature producer-profile
 
 # Consumer profiles
-fabric:profile-create --parents base-profile consumer1-profile
-fabric:profile-edit --pid org.ops4j.pax.web/org.osgi.service.http.port=8382 consumer1-profile
-fabric:profile-edit --features consumer-feature consumer1-profile
+fabric:profile-create --parents base-profile consumer-profile
+fabric:profile-edit --features consumer-feature consumer-profile
 
-fabric:profile-create --parents base-profile consumer2-profile
-fabric:profile-edit --pid org.ops4j.pax.web/org.osgi.service.http.port=8383 consumer2-profile
-fabric:profile-edit --features consumer-feature consumer2-profile
 
 ##################
 ### Containers ###
@@ -50,8 +33,7 @@ fabric:profile-edit --features consumer-feature consumer2-profile
 fabric:container-create-child --profile producer-profile root producer-container
 
 # Consumer containers
-fabric:container-create-child --profile consumer1-profile root consumer-container1
-fabric:container-create-child --profile consumer2-profile root consumer-container2
+fabric:container-create-child --profile consumer-profile root consumer-container 2
 
 shell:watch container-list
 
