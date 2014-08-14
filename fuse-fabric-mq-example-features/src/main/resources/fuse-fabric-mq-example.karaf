@@ -6,6 +6,7 @@
 fabric:create --wait-for-provisioning --profile fabric
 container-create-child root fuse-example-broker
 mq-create --assign-container fuse-example-broker fuse-example-mq-profile
+wait-for-provisioning
 
 
 ################
