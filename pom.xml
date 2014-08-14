@@ -16,9 +16,10 @@
 		<camel.version>2.13.2</camel.version>
 		<commons-pool.version>1.6</commons-pool.version>
 		<fabric8.minInstanceCount>1</fabric8.minInstanceCount>
-		<fabric8.parentProfiles>mq-base</fabric8.parentProfiles>
+		<fabric8.parentProfiles>mq-default</fabric8.parentProfiles>
 		<!-- fabric8 deploy profile configuration -->
 		<fabric8.profile>mq-broker-default.fuse-example-mq-profile</fabric8.profile>
+		<fabric8.useResolver>true</fabric8.useResolver>
 		<fabric8.version>1.1.0.CR5</fabric8.version>
 		<junit.version>4.8.1</junit.version>
 		<log4j.version>1.2.17</log4j.version>

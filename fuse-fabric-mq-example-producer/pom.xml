@@ -15,6 +15,7 @@
 			mq-broker-default.fuse-example-mq-profile</fabric8.parentProfiles>
 		<!-- fabric8 deploy profile configuration -->
 		<fabric8.profile>producer-profile</fabric8.profile>
+		<fabric8.useResolver>true</fabric8.useResolver>
 	</properties>
 	<dependencies>
 		<dependency>
