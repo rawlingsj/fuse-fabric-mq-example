@@ -9,6 +9,13 @@
 	<artifactId>fuse-fabric-mq-example-producer</artifactId>
 	<packaging>bundle</packaging>
 	<name>Fuse fabric basic MQ example Producer</name>
+	<properties>
+		<fabric8.minInstanceCount>1</fabric8.minInstanceCount>
+		<fabric8.parentProfiles>feature-camel-jms
+			mq-broker-default.fuse-example-mq-profile</fabric8.parentProfiles>
+		<!-- fabric8 deploy profile configuration -->
+		<fabric8.profile>producer-profile</fabric8.profile>
+	</properties>
 	<dependencies>
 		<dependency>
 			<groupId>log4j</groupId>
