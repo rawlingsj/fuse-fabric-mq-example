@@ -16,9 +16,11 @@
 		<fabric8.profile>consumer-profile</fabric8.profile>
 	</properties>
 	<dependencies>
+		<!-- logging -->
 		<dependency>
 			<groupId>log4j</groupId>
 			<artifactId>log4j</artifactId>
+			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.activemq</groupId>
@@ -38,14 +40,15 @@
 			<artifactId>camel-test-blueprint</artifactId>
 			<scope>test</scope>
 		</dependency>
-		<!-- logging -->
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-api</artifactId>
+			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-log4j12</artifactId>
+			<scope>test</scope>
 		</dependency>
 	</dependencies>
 	<build>
