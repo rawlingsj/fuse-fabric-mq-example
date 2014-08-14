@@ -11,7 +11,7 @@ The example will show how to create multiple containers using Fabric to dynamica
 2. Start fabric8
 3. Ensure you have configured your settings.xml to use the [fabric8 plugin](http://fabric8.io/gitbook/mavenPlugin.html#configuring-the-plugin)
 4. Build, install and send profiles and requirements to fabric8
-`$ mvn clean install`  
+`$ mvn fabric8:deploy`  
 5. Wait for containers to successfully provision  
 6. Use hawtio to see what's going on!  
 
