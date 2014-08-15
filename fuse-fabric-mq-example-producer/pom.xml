@@ -10,10 +10,10 @@
 	<packaging>bundle</packaging>
 	<name>Fuse fabric basic MQ example Producer</name>
 	<properties>
+		<fabric8.features>camel-amq</fabric8.features>
+		<fabric8.maximumInstances>1</fabric8.maximumInstances>
 		<fabric8.minInstanceCount>1</fabric8.minInstanceCount>
-		<fabric8.parentProfiles>feature-camel-jms
-			mq-broker-default.fuse-example-mq-profile</fabric8.parentProfiles>
-		<!-- fabric8 deploy profile configuration -->
+		<fabric8.parentProfiles>feature-camel-jms</fabric8.parentProfiles>
 		<fabric8.profile>producer-profile</fabric8.profile>
 		<fabric8.useResolver>true</fabric8.useResolver>
 	</properties>
