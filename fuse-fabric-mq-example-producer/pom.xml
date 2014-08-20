@@ -19,6 +19,10 @@
 	</properties>
 	<dependencies>
 		<dependency>
+			<groupId>io.fabric8.mq</groupId>
+			<artifactId>camel-amq</artifactId>
+		</dependency>
+		<dependency>
 			<groupId>log4j</groupId>
 			<artifactId>log4j</artifactId>
 			<scope>test</scope>
@@ -64,7 +68,7 @@
 				<configuration>
 					<instructions>
 						<Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
-						<Import-Package>*</Import-Package>
+						<Import-Package>io.fabric8.mq.fabric.camel,*</Import-Package>
 					</instructions>
 				</configuration>
 			</plugin>

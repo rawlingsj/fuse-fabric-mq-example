@@ -3,7 +3,7 @@ fuse-fabric-mq-example
 
 Example of using [fabric8](http://fabric8.io/) to build highly scalable messaging solutions.
 
-The example will show how to create multiple containers using Fabric to dynamically scale and discover services within the ESB.  Rather than using the default Fuse broker the example will show how to add new brokers with custom broker configuration.  The intention is that this example can be used as a quick way to start looking at how Fuse provides answers to the demands of resiliant high volume messaging requirements.
+The example will show how to create multiple containers using Fabric to dynamically scale and discover services within the ESB.  Rather than using the default Fuse broker the example will show how to add new brokers with custom broker configuration.  The intention is that this example can be used as a quick way to start looking at how Fuse provides answers to the demands of resilient high volume messaging requirements.
 
 <h4>Getting started...</h4>
 
@@ -28,7 +28,7 @@ The example will show how to create multiple containers using Fabric to dynamica
 6. Wait for containers to successfully provision  
 7. Use hawtio to see what's going on!  
 
-Hawtio - http://localhost:8181/hawtio  
+Hawtio - [http://localhost:8181/hawtio](http://localhost:8181/hawtio)
 
 <h4>What you should see</h4>
 
@@ -43,5 +43,5 @@ Try some of the following...
 # Useful links
 
 * [hawtio](http://hawt.io/)
-* [Fabric](http://fabric8.io)
+* [fabric8](http://fabric8.io)
 * [Competing Consumer EIP](http://www.enterpriseintegrationpatterns.com/CompetingConsumers.html)

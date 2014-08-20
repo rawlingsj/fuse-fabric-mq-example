@@ -31,6 +31,11 @@
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
+				<groupId>io.fabric8.mq</groupId>
+				<artifactId>camel-amq</artifactId>
+				<version>${fabric8.version}</version>
+			</dependency>
+			<dependency>
 				<groupId>junit</groupId>
 				<artifactId>junit</artifactId>
 				<version>${junit.version}</version>
@@ -129,12 +134,33 @@
 				<artifactId>fabric8-maven-plugin</artifactId>
 				<version>${fabric8.version}</version>
 			</plugin>
+			<plugin>
+				<artifactId>maven-scm-plugin</artifactId>
+				<version>1.8.1</version>
+				<configuration>
+					<tag>${project.artifactId}-${project.version}</tag>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>versions-maven-plugin</artifactId>
+				<version>2.1</version>
+			</plugin>
 		</plugins>
 	</build>
+	<scm>
+		<connection>scm:git:git@github.com:rawlingsj/fuse-fabric-mq-example.git</connection>
+	</scm>
 	<repositories>
 		<repository>
 			<id>fusesource</id>
 			<url>http://repo.fusesource.com/nexus/content/groups/public/</url>
 		</repository>
 	</repositories>
+	<distributionManagement>
+		<repository>
+			<id>cd_nexus</id>
+			<url>http://54.84.50.73:8081/nexus/content/repositories/releases/</url>
+		</repository>
+	</distributionManagement>
 </project>
