@@ -1,7 +1,6 @@
 fuse-fabric-mq-example
 ======================
-
-Example of using JBoss Fuse ESB, JBoss Fuse MQ and Fabric to build highly scalable messaging solutions.
+An example of using JBoss Fuse ESB, JBoss Fuse MQ and Fabric to build highly scalable messaging solutions.
 
 The example will show how to create multiple containers using Fabric to dynamically scale and discover services within the ESB.  Rather than using the default Fuse broker the example will show how to add new brokers with custom broker configuration.  The intention is that this example can be used as a quick way to start looking at how Fuse provides answers to the demands of resiliant high volume messaging requirements.
 
@@ -16,7 +15,7 @@ The example will show how to create multiple containers using Fabric to dynamica
 6. Wait for containers to successfully provision  
 7. Use hawtio to see what's going on!  
 
-Hawtio - http://localhost:8181/hawtio  
+Hawtio -[http://localhost:8181/hawtio](http://localhost:8181/hawtio)
 
 <h4>What you should see</h4>
 
