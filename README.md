@@ -1,7 +1,6 @@
 fuse-fabric-mq-example
 ======================
 
-
 An example of using JBoss Fuse ESB, JBoss Fuse MQ and Fabric to build highly scalable messaging solutions.
 
 The example will show how to create multiple containers using Fabric to dynamically scale and discover services within the ESB.  Rather than using the default Fuse broker the example will show how to add new brokers with custom broker configuration.  The intention is that this example can be used as a quick way to start looking at how Fuse provides answers to the demands of resiliant high volume messaging requirements.
