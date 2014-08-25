@@ -131,4 +131,13 @@
 			<url>http://repo.fusesource.com/nexus/content/groups/public/</url>
 		</repository>
 	</repositories>
+	<scm>
+		<connection>scm:git:git@github.com:rawlingsj/fuse-fabric-mq-example.git</connection>
+	</scm>
+	<distributionManagement>
+		<repository>
+			<id>releases</id>
+			<url>http://54.84.50.73:8081/nexus/content/repositories/releases/</url>
+		</repository>
+	</distributionManagement>
 </project>
