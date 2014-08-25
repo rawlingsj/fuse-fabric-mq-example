@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.fusebyexample.mq</groupId>
 	<artifactId>fuse-fabric-mq-example</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0.4</version>
 	<packaging>pom</packaging>
 	<name>Fuse fabric basic MQ example</name>
 	<modules>
@@ -132,15 +132,15 @@
 			</plugin>
 		</plugins>
 	</build>
+	<scm>
+		<connection>scm:git:git@github.com:rawlingsj/fuse-fabric-mq-example.git</connection>
+	</scm>
 	<repositories>
 		<repository>
 			<id>fusesource</id>
 			<url>http://repo.fusesource.com/nexus/content/groups/public/</url>
 		</repository>
 	</repositories>
-	<scm>
-		<connection>scm:git:git@github.com:rawlingsj/fuse-fabric-mq-example.git</connection>
-	</scm>
 	<distributionManagement>
 		<repository>
 			<id>releases</id>

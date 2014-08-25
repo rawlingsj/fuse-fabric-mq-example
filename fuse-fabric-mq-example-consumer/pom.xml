@@ -4,7 +4,7 @@
 	<parent>
 		<groupId>org.fusebyexample.mq</groupId>
 		<artifactId>fuse-fabric-mq-example</artifactId>
-		<version>0.0.1-SNAPSHOT</version>
+		<version>1.0.4</version>
 	</parent>
 	<artifactId>fuse-fabric-mq-example-consumer</artifactId>
 	<packaging>bundle</packaging>
