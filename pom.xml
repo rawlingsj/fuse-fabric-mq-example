@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.fusebyexample.mq</groupId>
 	<artifactId>fuse-fabric-mq-example</artifactId>
-	<version>..29-SNAPSHOT</version>
+	<version>1.0.9-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<name>Fuse fabric basic MQ example</name>
 	<modules>
